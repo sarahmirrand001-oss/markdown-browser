@@ -1,6 +1,6 @@
 ---
 name: markdown-browser
-description: Wrapper skill for OpenClaw `web_fetch` results. Use when you need MECE post-processing on fetched pages: policy decision from Content-Signal, privacy redaction, optional markdown normalization fallback, and stable output schema without re-implementing network fetch.
+description: "Wrapper skill for OpenClaw web_fetch results. Use when you need MECE post-processing on fetched pages: policy decision from Content-Signal, privacy redaction, optional markdown normalization fallback, and stable output schema without re-implementing network fetch."
 ---
 
 # Markdown Browser Wrapper
@@ -56,12 +56,12 @@ Output:
 
 ```bash
 # Install runtime dependency once inside the skill directory
-cd /Users/yanyang/openclaw/skills/markdown-browser && npm install --omit=dev
+npm install --omit=dev
 
 # 1) Obtain a web_fetch payload first (from OpenClaw runtime)
 # 2) Save it as /tmp/web_fetch.json
 # 3) Run wrapper post-processing
-node /Users/yanyang/openclaw/skills/markdown-browser/browser.js \
+node browser.js \
   --input /tmp/web_fetch.json \
   --content-signal "ai-input=yes, search=yes, ai-train=no" \
   --markdown-tokens "1820"
