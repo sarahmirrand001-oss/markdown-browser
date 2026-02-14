@@ -3,7 +3,7 @@ name: markdown-browser
 description: "Wrapper skill for OpenClaw web_fetch results. Use when you need MECE post-processing on fetched pages: policy decision from Content-Signal, privacy redaction, optional markdown normalization fallback, and stable output schema without re-implementing network fetch."
 ---
 
-# Markdown Browser Wrapper
+# Markdown Browser Skills
 
 This skill is an orchestration layer, not a replacement fetcher. It always keeps official `web_fetch` as the fetch source of truth.
 
@@ -13,15 +13,15 @@ This skill is an orchestration layer, not a replacement fetcher. It always keeps
 - Use OpenClaw `web_fetch` to retrieve the page.
 - Do not call direct HTTP fetch inside this skill for normal operation.
 
-2. Policy layer (this skill)
+2. Policy layer (these skills)
 - Parse `Content-Signal` and compute `policy_action`.
 - Current action focuses on `ai-input` semantics: `allow_input`, `block_input`, `needs_review`.
 
-3. Privacy layer (this skill)
+3. Privacy layer (these skills)
 - Redact path/fragment/query values in output URL fields.
 - Keep URL shape useful for debugging without leaking sensitive values.
 
-4. Normalization layer (this skill)
+4. Normalization layer (these skills)
 - If `contentType=text/markdown`, keep content as-is.
 - If `contentType=text/html`, convert with `turndown` as fallback enhancement.
 - For other content types, pass through text.

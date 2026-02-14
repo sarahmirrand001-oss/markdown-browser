@@ -1,12 +1,12 @@
-# Markdown Browser Skill (OpenClaw)
+# Markdown Browser Skills (OpenClaw)
 
-A professional post-processing wrapper for `web_fetch` results. This tool is designed for AI Agents to handle web content efficiently, respecting site policies and protecting user privacy.
+A professional post-processing wrapper for `web_fetch` results. These skills are designed for AI Agents to handle web content efficiently, respecting site policies and protecting user privacy.
 
 ## Features
 
 - **Policy Awareness**: Parses `Content-Signal` headers to determine if the content is allowed for AI training or input.
 - **Privacy First**: Automatically redacts sensitive parameters (keys, tokens, passwords) and paths from URLs in the output.
-- **Markdown Optimization**: Leveraging Cloudflare's "Markdown for Agents", it prioritizes native Markdown responses to save up to 80% of tokens.
+- **Markdown Optimization**: Leveraging Cloudflare's "Markdown for Agents", these skills prioritize native Markdown responses to save up to 80% of tokens.
 - **Graceful Fallback**: Automatically converts HTML to Markdown using `Turndown` if native Markdown is not available.
 - **Token Estimation**: Captures `x-markdown-tokens` for accurate context window management.
 
@@ -22,7 +22,7 @@ npm install
 
 ### As a Standalone CLI Tool
 
-You can pipe a JSON result from any web fetcher (like OpenClaw's `web_fetch`) into this script:
+You can pipe a JSON result from any web fetcher (like OpenClaw's `web_fetch`) into these skills:
 
 ```bash
 # Using a saved JSON file
@@ -32,7 +32,7 @@ node browser.js --input fetch_result.json --content-signal "ai-input=yes"
 cat fetch_result.json | node browser.js
 ```
 
-### As an OpenClaw Skill
+### As OpenClaw Skills
 
 Add this folder to your OpenClaw `skills` directory. The agent will automatically recognize the `SKILL.md` and use the `process_web_fetch_result` tool.
 
